@@ -271,8 +271,37 @@ function mostrarOferta(categoria) { //muestra la oferta en el contenedorOferta
 };
 
 window.addEventListener('DOMContentLoaded', function () { //carga del sw
+    const firebaseConfig = {
+        apiKey: "AIzaSyD1uBVpupDrP3EDiBWZrTqYiCliOVIIjDM",
+        authDomain: "dhara-indumentaria.firebaseapp.com",
+        projectId: "dhara-indumentaria",
+        storageBucket: "dhara-indumentaria.appspot.com",
+        messagingSenderId: "10455113861",
+        appId: "1:10455113861:web:eecf37dd6285e9171449ec"
+      };
+      function requestPermission(){
+        console.log("entre al requestPermission")
+        firebase.initializeApp(firebaseConfig);
+        const messaging = firebase.messaging();
+        messaging.requestPermission().then(() => {
+            console.log("permiso consedido")
+            // Initialize Firebase
+            messaging.getToken({ vapidKey: 'BGbci8hOCwQh2HL7M4EJSUFQs_Tdw-sOSvHzKgqaMRDARLHwBTCxij_Lz1BY7tTcxIH24TLFHCfxjuAgXha2mPI' })
+            .then(function(token) {
+                console.log('Token de registro:', token);
+                // Envía el token de registro a tu servidor
+            })
+            .catch(function(error) {
+                console.log('Error al obtener el token de registro:', error);
+            }).catch(function(error) {
+                console.log('Permiso denegado: ', error);
+              });
+            
+        })
+      }
+      requestPermission();
     if (navigator.serviceWorker && navigator.serviceWorker.register){ //chequea si el navegador soporta sw
-        navigator.serviceWorker.register('./../firebase-messaging-sw'); //registra el sw
+        navigator.serviceWorker.register('./../firebase-messaging-sw.js'); //registra el sw
     }else{
         console.log("no puedo usar service worker");
     }
