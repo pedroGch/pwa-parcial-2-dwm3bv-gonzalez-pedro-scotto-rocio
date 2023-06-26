@@ -1,7 +1,8 @@
 /*
  *  APELLIDOS: SCOTTO, GONZALEZ CHAVEZ
  */
-
+// import {initializeApp} from 'firebase/app'
+// import {getMessaging, getToken} from 'firebase/messaging'
 var arregloProductos = [];
 
 /**
@@ -271,7 +272,7 @@ function mostrarOferta(categoria) { //muestra la oferta en el contenedorOferta
 
 window.addEventListener('DOMContentLoaded', function () { //carga del sw
     if (navigator.serviceWorker && navigator.serviceWorker.register){ //chequea si el navegador soporta sw
-        navigator.serviceWorker.register('./../sw.js'); //registra el sw
+        navigator.serviceWorker.register('./../firebase-messaging-sw'); //registra el sw
     }else{
         console.log("no puedo usar service worker");
     }
