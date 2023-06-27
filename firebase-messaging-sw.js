@@ -1,4 +1,27 @@
+importScripts('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js');
+const firebaseConfig = {
+    apiKey: "AIzaSyD1uBVpupDrP3EDiBWZrTqYiCliOVIIjDM",
+    authDomain: "dhara-indumentaria.firebaseapp.com",
+    projectId: "dhara-indumentaria",
+    storageBucket: "dhara-indumentaria.appspot.com",
+    messagingSenderId: "10455113861",
+    appId: "1:10455113861:web:eecf37dd6285e9171449ec"
+};
 
+//const app = initializeApp(firebaseConfig);
+//const messaging = getMessaging(app);
+
+firebase.initializeApp(firebaseConfig);
+const messaging = firebase.messaging();
+messaging.onBackgroundMessage(messaging, (payload) => {
+    console.log('[firebase-messaging-sw.js] Received background message ', payload);
+    const notificationOptions = {
+        body: payload.notification.body,
+        icon: payload.notification.icon,
+    }
+    self.registration.showNotification(payload.notification.title, notificationOptions);
+});
 
 
 const nombreCache = 'dhara-cache'; //nombre del cache
