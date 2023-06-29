@@ -6,6 +6,10 @@ function cargarCarritoCheckout(){
   });
 }
 
+function mostrarTotalCantidadCheckout (){
+  document.querySelector("#totalCantidadCheckout").innerText =devolverLocalStorage().length;
+}
+
 function mostrarSubTotal(){
   document.querySelector("#valorSubtotalCompra").innerText = carrito.mostrarPrecioTotalDeLaCompra();
 };
@@ -196,6 +200,7 @@ function deshabilitarBotonCompra(){
 cargarCarritoCheckout();
 deshabilitarBotonCompra();
 mostrarSubTotal();
+mostrarTotalCantidadCheckout ()
 mostrarCostoEnvio(0);
 mostrarCantidadTotal();
 mostrarProductos();
