@@ -131,12 +131,18 @@ class Producto{
     botonCompraCardBody.innerText = "Agregar al carrito";
     botonCompraCardBody.setAttribute("onclick",`agregarAlCarrito(${this.id})`);
 
+    let botonIrCheckoutCardBody = document.createElement("button");
+    botonIrCheckoutCardBody.className = "btn shadow-sm btn-violet-gradient  my-3 addCart ms-3";
+    botonIrCheckoutCardBody.innerText = "Comprar";
+    botonIrCheckoutCardBody.setAttribute("onclick",`window.location.href = "checkout.html"`);
+
     //div col con texto (le agrego los elementos)
     divColConTexto.append(tituloDetalle);
     divColConTexto.append(productoDescripcionCorta);
     divColConTexto.append(productoDescripcionLarga);
     divColConTexto.append(precioProductoDetalle);
     divColConTexto.append(botonCompraCardBody);
+    divColConTexto.append(botonIrCheckoutCardBody);
 
 
     //div col con imagen (le agrego la imagen)
