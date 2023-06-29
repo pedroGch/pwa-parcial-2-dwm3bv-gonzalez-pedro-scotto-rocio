@@ -32,7 +32,7 @@ class Producto{
     let imgCardPrducto = document.createElement("img");
     imgCardPrducto.className = "img-fluid";
     imgCardPrducto.setAttribute("src",`${this.urlImagen}`);
-    imgCardPrducto.setAttribute("alt",`mandala con colores vibrantes`);
+    imgCardPrducto.setAttribute("alt",`foto de producto: ${this.nombre}`);
 
     //este es el body del card
     let divCardBody = document.createElement("div");
@@ -100,7 +100,7 @@ class Producto{
     let imgProducto = document.createElement("img");
     imgProducto.className = "img-fluid mx-auto";
     imgProducto.setAttribute("src",`${producto.urlImagen}`);
-    imgProducto.setAttribute("alt",`mandala con colores vibrantes`);
+    imgProducto.setAttribute("alt",`foto de producto: ${producto.nombre}`);
 
     //este es el div col con texto
     let divColConTexto = document.createElement("div");
