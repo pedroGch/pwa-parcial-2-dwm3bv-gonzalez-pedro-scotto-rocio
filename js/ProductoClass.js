@@ -132,13 +132,14 @@ class Producto{
     botonCompraCardBody.setAttribute("onclick",`agregarAlCarrito(${this.id})`);
 
     
+
     //div col con texto (le agrego los elementos)
     divColConTexto.append(tituloDetalle);
     divColConTexto.append(productoDescripcionCorta);
     divColConTexto.append(productoDescripcionLarga);
     divColConTexto.append(precioProductoDetalle);
     divColConTexto.append(botonCompraCardBody);
-    divColConTexto.append(botonIrCheckoutCardBody);
+    
 
 
     //div col con imagen (le agrego la imagen)
