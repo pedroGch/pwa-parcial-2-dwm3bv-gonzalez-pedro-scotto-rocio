@@ -22,7 +22,7 @@ class Producto{
     let divContenedorProducto = document.createElement("div");
     divContenedorProducto.className = "col-12 col-sm-10 col-md-6 col-lg-4 mx-auto";
 
-    //este es el div car
+    //este es el div card
     let divCard = document.createElement("div");
     divCard.className = "card  shadow-sm mx-auto bg-light-violet";
     divCard.style.width = "18rem";
@@ -90,7 +90,7 @@ class Producto{
     
     //este es el div row que contiene las col
     let divContenedorRow = document.createElement("div");
-    divContenedorRow.className = "row";
+    divContenedorRow.className = "row mx-3";
 
     //este es el div col con imagen
     let divColConImagen = document.createElement("div");

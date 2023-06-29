@@ -19,7 +19,7 @@ async function cargarArray(){ //carga el array de productos
                 .then(res=>res.json()) //convierto la respuesta a json
                 .then(json=>{ //guardo el json en el array
                     mostrarTodosLosProductos(json); //muestra todos los productos
-                    localStorage.setItem("productos", JSON.stringify(json));
+                    localStorage.setItem("productos", JSON.stringify(json)); 
 
                     
                 })
@@ -35,9 +35,14 @@ let cantidadDeProductos  = document.querySelector("#monstrarCantidad");
 let removerTodosLosProductos = document.querySelector("#removeAllProd");
 let tuTotalCantidad = document.querySelector("#tuTotalCantidad");
 
+let totalCantidadCheckout = document.querySelector("#totalCantidadCheckout");
+
+
 let divbotonDescarga = document.getElementById('divbotonDescarga');
 let botonDescarga = document.getElementById('botonDescarga');
 let accionInstalar;
+
+
 
 
 // Funcion para el boton que dispara el pop-up de instalación
