@@ -13,6 +13,7 @@ async function cargarArray(){ //carga el array de productos
     const hayProductos = mostrarLocalStorageProductos(); //chequea si hay productos en el local storage
     if(hayProductos) { //si hay productos en el local storage los muestra
         mostrarTodosLosProductos(hayProductos); 
+        alerta('los productos se traen de LocalStorage!', 'info');
     }else{
         try { //intento hacer la llamada a la api
             await fetch('https://fakestoreapi.com/products') //llamada a la api
@@ -24,7 +25,7 @@ async function cargarArray(){ //carga el array de productos
                     
                 })
         } catch (error) { //si hay error lo muestro en consola
-            alerta('No se pudo conectar a la API, tus datos serán usados desde el LocalStorage!', 'info');
+            
         }
     }
 }
@@ -131,17 +132,17 @@ async function agregarAlCarrito(idProducto){
  */
 function alerta(message, type){
     const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-    
-      const wrapper = document.createElement('div')
-      wrapper.innerHTML = [
-        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-        `   <div>${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-      ].join('')
-    
-      alertPlaceholder.append(wrapper)
-    console.log(wrapper);
+    alertPlaceholder.text = ""
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+    ].join('')
+
+    alertPlaceholder.append(wrapper)
+console.log(wrapper);
 }
 
 
