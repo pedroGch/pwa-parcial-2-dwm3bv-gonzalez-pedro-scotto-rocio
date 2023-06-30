@@ -95,9 +95,9 @@ function mostrarTodosLosProductos(arreglo){
  * Agrega un producto al carrito
  * @param {*} idProducto  id del producto
  */
-function agregarAlCarrito(idProducto){ 
+async function agregarAlCarrito(idProducto){ 
     try {
-        fetch('https://fakestoreapi.com/products/'+ idProducto)
+        await fetch('https://fakestoreapi.com/products/'+ idProducto)
         .then(res=>res.json())
         .then(json=>{
             let productoObject = new Producto(json.title, json.description, json.price, json.image, json.category, json.id, null);
@@ -105,8 +105,10 @@ function agregarAlCarrito(idProducto){
             carritoDeCompras.agregarProducto(productoObject);
         })
     } catch (error) {
-        let productos = mostrarLocalStorage();
-        let productoObject = productos.filter()
+        
+        let productos = mostrarLocalStorageProductos();
+        let productoObject = productos.filter(p=>p.id == idProducto)[0];
+        console.log(productoObject);
         arregloProductos.push(productoObject);
         carritoDeCompras.agregarProducto(productoObject);
     }
