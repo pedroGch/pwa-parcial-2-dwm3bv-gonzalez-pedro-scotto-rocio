@@ -96,13 +96,21 @@ function mostrarTodosLosProductos(arreglo){
  * @param {*} idProducto  id del producto
  */
 function agregarAlCarrito(idProducto){ 
-    fetch('https://fakestoreapi.com/products/'+ idProducto)
+    try {
+        fetch('https://fakestoreapi.com/products/'+ idProducto)
         .then(res=>res.json())
         .then(json=>{
             let productoObject = new Producto(json.title, json.description, json.price, json.image, json.category, json.id, null);
             arregloProductos.push(productoObject);
             carritoDeCompras.agregarProducto(productoObject);
-    })
+        })
+    } catch (error) {
+        let productos = mostrarLocalStorage();
+        let productoObject = productos.filter()
+        arregloProductos.push(productoObject);
+        carritoDeCompras.agregarProducto(productoObject);
+    }
+    
 
     actualizarLocalStorage(); //actualizo el local storage  
 
