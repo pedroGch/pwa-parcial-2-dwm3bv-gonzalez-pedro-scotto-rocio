@@ -28,6 +28,7 @@ const nombreCache = 'dhara-cache'; //nombre del cache
 const archivos = ['/', //archivos a cachear
                 'index.html',
                 'css/styles.css',
+                'css/bootstrap.css',
                 'js/CarritoClass.js',
                 'js/ProductoClass.js',
                 'js/index.js',
