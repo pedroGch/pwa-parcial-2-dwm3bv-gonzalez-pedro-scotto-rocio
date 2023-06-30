@@ -42,8 +42,19 @@ const archivos = ['/', //archivos a cachear
                 'img/galeria-4.jpg',
                 'img/galeria-5.jpg',
                 'img/galeria-6.jpg',
-
-
+                'checkout.html',
+                'js/checkout.js',
+                'img/pagos.jpg',
+                'img/pago-visa.jpg',
+                'img/pago-transfer.jpg',
+                'img/pago-rapi.jpg',
+                'img/pago-mp.jpg',
+                'img/pago-facil.jpg',
+                'img/pago-master.jpg',
+                'img/envio.jpg',
+                'img/envio-priv.jpg',
+                'img/envio-arg.jpg',
+                'img/envio-acordar.jpg'
 ];
 
 
