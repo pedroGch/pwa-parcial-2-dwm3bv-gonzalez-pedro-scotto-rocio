@@ -24,7 +24,7 @@ async function cargarArray(){ //carga el array de productos
                     
                 })
         } catch (error) { //si hay error lo muestro en consola
-            console.log(error) 
+            alerta('No se pudo conectar a la API, tus datos serán usados desde el LocalStorage!', 'info');
         }
     }
 }
@@ -105,7 +105,7 @@ async function agregarAlCarrito(idProducto){
             carritoDeCompras.agregarProducto(productoObject);
         })
     } catch (error) {
-        
+        alerta('No se pudo conectar a la API!', 'warning');
         let productos = mostrarLocalStorageProductos();
         let productoObject = productos.filter(p=>p.id == idProducto)[0];
         console.log(productoObject);
@@ -122,6 +122,29 @@ async function agregarAlCarrito(idProducto){
     imprimirCarrito()
 
 }
+
+
+/**
+ * Funcion que lanza un alerta 
+ * @param {*} message  mensaje del alerta
+ * @param {*} type  tipo de alerta (success, danger, warning, info)
+ */
+function alerta(message, type){
+    const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    
+      const wrapper = document.createElement('div')
+      wrapper.innerHTML = [
+        `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+        `   <div>${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+      ].join('')
+    
+      alertPlaceholder.append(wrapper)
+    console.log(wrapper);
+}
+
+
 
 /**
  * Imprime el carrito en el modal
